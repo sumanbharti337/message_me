@@ -5,20 +5,24 @@
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="user_id" id="meta_user_id" meta-u-ide="<%= current_user.id if current_user %>" content="user" />
 
-    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=> true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track'=> true %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
+<!--  <h1 id="meta-user-id"><%#= current_user.username %></h1>-->
     <div class="ui small inverted menu">
       <div class="ui container">
         <%= render 'layouts/navigation' %>
       </div>
     </div>
     <div class="ui container">
+      <%= render 'layouts/messages' %>
       <%= yield %>
     </div>
   </body>
